@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using HelloXFPrism.Models;
@@ -17,6 +18,7 @@ namespace HelloXFPrism.ViewModels
         private Command loadItemsCommand;
         private Command addItemCommand;
         private Item selectedItem;
+        private ObservableCollection<Item> items;
 
         public ItemsViewModel(INavigationService navigationService, IDataStore<Item> itemDataStore)
         {
@@ -27,7 +29,11 @@ namespace HelloXFPrism.ViewModels
             this.Items = new ObservableCollection<Item>();
         }
 
-        public ObservableCollection<Item> Items { get; }
+        public ObservableCollection<Item> Items
+        {
+            get => this.items;
+            set => this.SetProperty(ref this.items, value, nameof(this.Items));
+        }
 
         public Item SelectedItem
         {
@@ -67,12 +73,18 @@ namespace HelloXFPrism.ViewModels
 
             try
             {
+                // Load payload from backend
+                var newItems = (await this.itemDataStore.GetItemsAsync(forceRefresh: true)).ToList();
+
+                // Refresh list of items: Alternative 1
                 this.Items.Clear();
-                var items = await this.itemDataStore.GetItemsAsync(forceRefresh: true);
-                foreach (var item in items)
+                foreach (var item in newItems)
                 {
                     this.Items.Add(item);
                 }
+
+                // Refresh list of items: Alternative 2
+                // this.Items = new ObservableCollection<Item>(newItems);
             }
             catch (Exception ex)
             {
