@@ -11,8 +11,11 @@ namespace HelloXFPrism.ViewModels
         private readonly INavigationService navigationService;
         private readonly IDataStore<Item> itemDataStore;
         private Command saveCommand;
-        private Item item;
         private bool isNewItem;
+        private string id;
+        private string text;
+        private decimal price;
+        private string description;
 
         public ItemDetailViewModel(INavigationService navigationService, IDataStore<Item> itemDataStore)
         {
@@ -20,10 +23,46 @@ namespace HelloXFPrism.ViewModels
             this.itemDataStore = itemDataStore;
         }
 
-        public Item Item
+        public string Id
         {
-            get => this.item;
-            set => this.SetProperty(ref this.item, value, nameof(this.Item));
+            get => this.id;
+            private set => this.SetProperty(ref this.id, value, nameof(this.Id));
+        }
+
+        public string Text
+        {
+            get => this.text;
+            set
+            {
+                if (this.SetProperty(ref this.text, value, nameof(this.Text)))
+                {
+                    this.RaisePropertyChanged(nameof(this.Summary));
+                }
+            }
+        }
+
+        public decimal Price
+        {
+            get => this.price;
+            set
+            {
+                if (this.SetProperty(ref this.price, value, nameof(this.Price)))
+                {
+                    this.RaisePropertyChanged(nameof(this.Summary));
+                }
+            }
+        }
+
+        public string Description
+        {
+            get => this.description;
+            set => this.SetProperty(ref this.description, value, nameof(this.Description));
+        }
+
+        // DEMO: Cascading updates: If Text or Price property changes, Summary needs to be updated too.
+        public string Summary
+        {
+            get { return $"Summary: {this.Text} @ CHF {this.Price:0.00}"; }
         }
 
         public ICommand SaveCommand
@@ -32,14 +71,23 @@ namespace HelloXFPrism.ViewModels
             {
                 return this.saveCommand ?? (this.saveCommand = new Command(async () =>
                 {
+                    var item = new Item
+                    {
+                        Id = this.Id,
+                        Text = this.Text,
+                        Price = this.Price,
+                        Description = this.Description,
+                    };
+
                     if (this.isNewItem)
                     {
-                        await this.itemDataStore.AddItemAsync(this.Item);
+                        await this.itemDataStore.AddItemAsync(item);
                     }
                     else
                     {
-                        await this.itemDataStore.UpdateItemAsync(this.Item);
+                        await this.itemDataStore.UpdateItemAsync(item);
                     }
+
                     var navigationParameters = new NavigationParameters { { "isNewItem", this.isNewItem } };
                     await this.navigationService.GoBackAsync(navigationParameters);
                 }));
@@ -55,15 +103,17 @@ namespace HelloXFPrism.ViewModels
             var existingItem = parameters["model"] as Item;
             if (existingItem == null)
             {
-                this.Item = new Item();
                 this.isNewItem = true;
             }
             else
             {
-                this.Item = existingItem;
+                this.Id = existingItem.Id;
+                this.Text = existingItem.Text;
+                this.Price = existingItem.Price;
+                this.Description = existingItem.Description;
+
                 this.isNewItem = false;
             }
-
         }
     }
 }
