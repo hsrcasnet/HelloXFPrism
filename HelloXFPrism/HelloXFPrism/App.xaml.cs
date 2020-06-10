@@ -22,10 +22,10 @@ namespace HelloXFPrism
         {
             containerRegistry.RegisterSingleton<IDataStore<Item>, MockDataStore>();
 
-            containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<ItemsPage, ItemsViewModel>();
             containerRegistry.RegisterForNavigation<NewItemPage, ItemDetailViewModel>();
             containerRegistry.RegisterForNavigation<ItemDetailPage, ItemDetailViewModel>();
+            containerRegistry.RegisterForNavigation<NavigationPage>();
         }
 
         protected override async void OnInitialized()
