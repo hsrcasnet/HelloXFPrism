@@ -1,13 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.489
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloXFPrism.Android", "HelloXFPrism\HelloXFPrism.Android\HelloXFPrism.Android.csproj", "{D118924D-8C51-4501-AF44-7AF89CF9FD15}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloXFPrism.iOS", "HelloXFPrism\HelloXFPrism.iOS\HelloXFPrism.iOS.csproj", "{42C57353-707D-4C44-8740-289EC2E2B6B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloXFPrism", "HelloXFPrism\HelloXFPrism\HelloXFPrism.csproj", "{5241FEE9-FB74-424D-A9F6-A27E2BE19BD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloXFPrism", "HelloXFPrism\HelloXFPrism\HelloXFPrism.csproj", "{5241FEE9-FB74-424D-A9F6-A27E2BE19BD3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{760EB3CC-CB68-497C-A221-37A714C00ED1}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
