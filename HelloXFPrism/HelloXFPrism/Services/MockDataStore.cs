@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using HelloXFPrism.Models;
+using HelloXFPrism.Model;
 
 namespace HelloXFPrism.Services
 {

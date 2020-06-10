@@ -1,4 +1,4 @@
-﻿namespace HelloXFPrism.Models
+﻿namespace HelloXFPrism.Model
 {
     public class Item
     {

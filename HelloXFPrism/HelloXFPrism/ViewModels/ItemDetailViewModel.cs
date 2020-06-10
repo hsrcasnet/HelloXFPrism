@@ -1,5 +1,5 @@
 ﻿using System.Windows.Input;
-using HelloXFPrism.Models;
+using HelloXFPrism.Model;
 using HelloXFPrism.Services;
 using Prism.Navigation;
 using Xamarin.Forms;

@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using HelloXFPrism.Models;
+using HelloXFPrism.Model;
 using HelloXFPrism.Services;
 using Prism.Navigation;
 using Xamarin.Forms;

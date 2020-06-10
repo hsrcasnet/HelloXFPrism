@@ -1,4 +1,4 @@
-﻿using HelloXFPrism.Models;
+﻿using HelloXFPrism.Model;
 using HelloXFPrism.Services;
 using HelloXFPrism.ViewModels;
 using HelloXFPrism.Views;
