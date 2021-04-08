@@ -19,7 +19,7 @@
                 TextColor="White" />
 
             <Label FontSize="Medium" Text="Text" />
-            <Entry FontSize="Small" Text="{Binding Item.Text}" />
+            <Entry FontSize="Small" Text="{Binding Text}" />
 
             <Label FontSize="Medium" Text="Price" />
             <Entry
