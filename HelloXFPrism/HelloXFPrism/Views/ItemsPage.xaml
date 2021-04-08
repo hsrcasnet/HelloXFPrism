@@ -1,39 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
+    x:Class="HelloXFPrism.Views.ItemsPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="HelloXFPrism.Views.ItemsPage"
-    Title="{Binding Title}"
-    x:Name="BrowseItemsPage">
+    x:Name="BrowseItemsPage"
+    Title="{Binding Title}">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" />
+        <ToolbarItem Command="{Binding AddItemCommand}" Text="Add" />
     </ContentPage.ToolbarItems>
 
     <StackLayout>
         <ListView
-            ItemsSource="{Binding Items}"
-            SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
-            VerticalOptions="FillAndExpand"
+            CachingStrategy="RecycleElement"
             HasUnevenRows="true"
-            RefreshCommand="{Binding LoadItemsCommand}"
             IsPullToRefreshEnabled="true"
             IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-            CachingStrategy="RecycleElement">
+            ItemsSource="{Binding Items}"
+            RefreshCommand="{Binding LoadItemsCommand}"
+            SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+            VerticalOptions="FillAndExpand">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Padding="10">
                             <Label
-                                Text="{Binding Text}"
+                                FontSize="16"
                                 LineBreakMode="NoWrap"
                                 Style="{DynamicResource ListItemTextStyle}"
-                                FontSize="16" />
+                                Text="{Binding Text}" />
                             <Label
-                                Text="{Binding Description}"
+                                FontSize="13"
                                 LineBreakMode="NoWrap"
                                 Style="{DynamicResource ListItemDetailTextStyle}"
-                                FontSize="13" />
+                                Text="{Binding Description}" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

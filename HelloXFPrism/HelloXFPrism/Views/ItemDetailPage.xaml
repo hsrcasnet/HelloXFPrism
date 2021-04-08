@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
+    x:Class="HelloXFPrism.Views.ItemDetailPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="HelloXFPrism.Views.ItemDetailPage"
     Title="{Binding Text}">
 
     <ScrollView>
-        <StackLayout Spacing="20" Padding="15">
+        <StackLayout Padding="15" Spacing="20">
 
-            <Label Text="Text:" FontSize="Medium" />
-            <Label Text="{Binding Text}" FontSize="Small" />
+            <Label FontSize="Medium" Text="Text:" />
+            <Label FontSize="Small" Text="{Binding Text}" />
 
-            <Label Text="Price:" FontSize="Medium" />
-            <Label Text="{Binding Price, StringFormat='CHF {0:0.00}'}" FontSize="Small" />
+            <Label FontSize="Medium" Text="Price:" />
+            <Label FontSize="Small" Text="{Binding Price, StringFormat='CHF {0:0.00}'}" />
 
-            <Label Text="Description:" FontSize="Medium" />
-            <Label Text="{Binding Description}" FontSize="Small" />
+            <Label FontSize="Medium" Text="Description:" />
+            <Label FontSize="Small" Text="{Binding Description}" />
 
         </StackLayout>
     </ScrollView>

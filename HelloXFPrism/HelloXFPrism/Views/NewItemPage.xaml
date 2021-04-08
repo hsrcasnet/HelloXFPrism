@@ -1,38 +1,38 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentPage
+    x:Class="HelloXFPrism.Views.NewItemPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="HelloXFPrism.Views.NewItemPage"
     Title="New Item">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add item" Command="{Binding SaveCommand}" />
+        <ToolbarItem Command="{Binding SaveCommand}" Text="Add item" />
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="15">
+        <StackLayout Padding="15" Spacing="20">
             <Label
-                Text="{Binding Summary}"
-                FontSize="Small"
-                FontAttributes="Italic"
                 BackgroundColor="DarkSlateBlue"
+                FontAttributes="Italic"
+                FontSize="Small"
+                Text="{Binding Summary}"
                 TextColor="White" />
 
-            <Label Text="Text" FontSize="Medium" />
-            <Entry Text="{Binding Item.Text}" FontSize="Small" />
+            <Label FontSize="Medium" Text="Text" />
+            <Entry FontSize="Small" Text="{Binding Item.Text}" />
 
-            <Label Text="Price" FontSize="Medium" />
+            <Label FontSize="Medium" Text="Price" />
             <Entry
-                Text="{Binding Price}"
                 FontSize="Small"
-                Keyboard="Numeric" />
+                Keyboard="Numeric"
+                Text="{Binding Price}" />
 
-            <Label Text="Description" FontSize="Medium" />
+            <Label FontSize="Medium" Text="Description" />
             <Editor
-                Text="{Binding Description}"
-                FontSize="Small"
                 Margin="0"
-                BackgroundColor="LightGray" />
+                BackgroundColor="LightGray"
+                FontSize="Small"
+                Text="{Binding Description}" />
 
         </StackLayout>
     </ContentPage.Content>
