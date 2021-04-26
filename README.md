@@ -1,7 +1,7 @@
 # HelloXFPrism
-Prism is a framework for building loosely coupled, maintainable, and testable XAML applications in WPF, and Xamarin Forms. The sample app in this repository demonstrates the use of Prism in a very basic Xamarin Forms app.
+Prism.Forms is a framework for building loosely coupled, maintainable, and testable Xamarin Forms apps. The sample app in this repository demonstrates the use of Prism.Forms in a very basic Xamarin Forms app.
 
-It covers topics such as:
+Topics covered:
 - MVVM data binding between Views and ViewModels
 - Commanding between Views and ViewModels
 - Dependency injection with Autofac
