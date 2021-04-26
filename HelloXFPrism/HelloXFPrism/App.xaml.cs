@@ -3,7 +3,7 @@ using HelloXFPrism.Services;
 using HelloXFPrism.ViewModels;
 using HelloXFPrism.Views;
 using Prism;
-using Prism.Autofac;
+using Prism.DryIoc;
 using Prism.Ioc;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

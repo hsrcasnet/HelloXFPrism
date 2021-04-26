@@ -4,6 +4,6 @@ Prism.Forms is a framework for building loosely coupled, maintainable, and testa
 Topics covered:
 - MVVM data binding between Views and ViewModels
 - Commanding between Views and ViewModels
-- Dependency injection with Autofac
+- Dependency injection with DryIoc
 - Event aggregation for loosely coupled communication between ViewModels
 - Navigation with MVVM support

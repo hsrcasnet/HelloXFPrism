@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<autofac:PrismApplication
+<prism:PrismApplication
+    x:Class="HelloXFPrism.App"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:autofac="clr-namespace:Prism.Autofac;assembly=Prism.Autofac.Forms"
-    x:Class="HelloXFPrism.App">
+    xmlns:prism="http://prismlibrary.com">
 
-    <autofac:PrismApplication.Resources>
+    <prism:PrismApplication.Resources>
         <ResourceDictionary>
             <!--  Global Styles  -->
             <Color x:Key="NavigationPrimary">#2196F3</Color>
@@ -14,5 +14,5 @@
                 <Setter Property="BarTextColor" Value="White" />
             </Style>
         </ResourceDictionary>
-    </autofac:PrismApplication.Resources>
-</autofac:PrismApplication>
+    </prism:PrismApplication.Resources>
+</prism:PrismApplication>
