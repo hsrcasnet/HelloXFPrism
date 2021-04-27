@@ -25,7 +25,7 @@ namespace HelloXFPrism.ViewModels
             this.navigationService = navigationService;
             this.itemDataStore = itemDataStore;
 
-            this.Title = "Browse";
+            this.Title = "HelloXFPrism";
             this.Items = new ObservableCollection<Item>();
         }
 
@@ -107,7 +107,7 @@ namespace HelloXFPrism.ViewModels
             {
                 this.LoadItemsCommand.Execute(null);
             }
-            if (navigationMode == NavigationMode.Back)
+            else if (navigationMode == NavigationMode.Back)
             {
                 var isNewItem = parameters["isNewItem"] as bool?;
                 if (isNewItem.HasValue && isNewItem.Value)

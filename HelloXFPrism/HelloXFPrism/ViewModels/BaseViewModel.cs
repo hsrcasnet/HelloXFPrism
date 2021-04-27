@@ -7,8 +7,8 @@
 
         public bool IsBusy
         {
-            get { return this.isBusy; }
-            set { this.SetProperty(ref this.isBusy, value); }
+            get => this.isBusy;
+            set => this.SetProperty(ref this.isBusy, value);
         }
 
         public string Title
