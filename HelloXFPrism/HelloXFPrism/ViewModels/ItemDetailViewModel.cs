@@ -60,39 +60,30 @@ namespace HelloXFPrism.ViewModels
         }
 
         // DEMO: Cascading updates: If Text or Price property changes, Summary needs to be updated too.
-        public string Summary
-        {
-            get { return $"Summary: {this.Text} @ CHF {this.Price:0.00}"; }
-        }
+        public string Summary => $"Summary: {this.Text} @ CHF {this.Price:0.00}";
 
-        public ICommand SaveCommand
+        public ICommand SaveCommand => this.saveCommand ?? (this.saveCommand = new Command(async () =>
         {
-            get
+            var item = new Item
             {
-                return this.saveCommand ?? (this.saveCommand = new Command(async () =>
-                {
-                    var item = new Item
-                    {
-                        Id = this.Id,
-                        Text = this.Text,
-                        Price = this.Price,
-                        Description = this.Description,
-                    };
+                Id = this.Id,
+                Text = this.Text,
+                Price = this.Price,
+                Description = this.Description,
+            };
 
-                    if (this.isNewItem)
-                    {
-                        await this.itemDataStore.AddItemAsync(item);
-                    }
-                    else
-                    {
-                        await this.itemDataStore.UpdateItemAsync(item);
-                    }
-
-                    var navigationParameters = new NavigationParameters { { "isNewItem", this.isNewItem } };
-                    await this.navigationService.GoBackAsync(navigationParameters);
-                }));
+            if (this.isNewItem)
+            {
+                await this.itemDataStore.AddItemAsync(item);
             }
-        }
+            else
+            {
+                await this.itemDataStore.UpdateItemAsync(item);
+            }
+
+            var navigationParameters = new NavigationParameters { { "isNewItem", this.isNewItem } };
+            await this.navigationService.GoBackAsync(navigationParameters);
+        }));
 
         public void OnNavigatedFrom(INavigationParameters parameters)
         {
