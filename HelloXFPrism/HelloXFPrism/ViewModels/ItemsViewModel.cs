@@ -20,7 +20,9 @@ namespace HelloXFPrism.ViewModels
         private Item selectedItem;
         private ObservableCollection<Item> items;
 
-        public ItemsViewModel(INavigationService navigationService, IDataStore<Item> itemDataStore)
+        public ItemsViewModel(
+            INavigationService navigationService,
+            IDataStore<Item> itemDataStore)
         {
             this.navigationService = navigationService;
             this.itemDataStore = itemDataStore;
@@ -54,12 +56,12 @@ namespace HelloXFPrism.ViewModels
 
         public ICommand LoadItemsCommand
         {
-            get { return this.loadItemsCommand ?? (this.loadItemsCommand = new Command(async () => await this.ExecuteLoadItemsCommand())); }
+            get => this.loadItemsCommand ??= new Command(async () => await this.ExecuteLoadItemsCommand());
         }
 
         public ICommand AddItemCommand
         {
-            get { return this.addItemCommand ?? (this.addItemCommand = new Command(async () => { await this.navigationService.NavigateAsync("NewItemPage"); })); }
+            get => this.addItemCommand ??= new Command(async () => { await this.navigationService.NavigateAsync("NewItemPage"); });
         }
 
         private async Task ExecuteLoadItemsCommand()
