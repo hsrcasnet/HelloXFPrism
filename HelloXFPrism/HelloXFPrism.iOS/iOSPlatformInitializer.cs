@@ -1,9 +1,12 @@
 ﻿using Prism;
 using Prism.Ioc;
 
-public class iOSPlatformInitializer : IPlatformInitializer
+namespace HelloXFPrism.iOS
 {
-    public void RegisterTypes(IContainerRegistry containerRegistry)
+    public class iOSPlatformInitializer : IPlatformInitializer
     {
+        public void RegisterTypes(IContainerRegistry containerRegistry)
+        {
+        }
     }
 }
